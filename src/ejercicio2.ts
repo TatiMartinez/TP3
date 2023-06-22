@@ -51,4 +51,3 @@ lista.agregarTarea({ id: 3, descripcion: 'Estudiar para el examen', completada: 
   
 lista.marcarTareaCompleta(2);
 lista.listarTareas();
-  
