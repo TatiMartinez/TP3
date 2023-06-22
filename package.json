@@ -1,7 +1,7 @@
 {
   "name": "tp3",
   "version": "1.0.0",
-  "description": "Trabajo Práctico 3 Programación II 2023",
+  "description": "Trabajo Práctico 3 Programación II 2023 | Tatiana Martinez, Emiliano Rodriguez",
   "main": "index.js",
   "dependencies": {
     "abbrev": "^1.1.1",
