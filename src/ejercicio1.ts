@@ -5,41 +5,38 @@ ejercicio 1 crear una clase abstracta llamada Animal y dos clases hijas llamadas
 const mensaje: string = '¡Hola, mundo!';
 console.log(mensaje);
 
-/*
-crear una clase abstracta llamada Animal y dos clases hijas llamadas Perro y Gato que extiendan la clase Animal. Cada una de las clases hijas debe implementar el método hacerSonido() de forma diferente.
-*/
 abstract class Animal {
-    nombre: string;
+  nombre: string;
   
-    constructor(nombre: string) {
-      this.nombre = nombre;
-    }
-  
-    abstract hacerSonido(): void;
+  constructor(nombre: string) {
+    this.nombre = nombre;
   }
   
-  class Perro extends Animal {
-    constructor(nombre: string) {
-      super(nombre);
-    }
+  abstract hacerSonido(): void;
+}
   
-    hacerSonido(): void {
-      console.log("Guau, guau!");
-    }
+class Perro extends Animal {
+  constructor(nombre: string) {
+    super(nombre);
   }
   
-  class Gato extends Animal {
-    constructor(nombre: string) {
-      super(nombre);
-    }
+  hacerSonido(): void {
+    console.log("Guau, guau!");
+  }
+}
   
-    hacerSonido(): void {
-      console.log("Miau, miau!");
-    }
+class Gato extends Animal {
+  constructor(nombre: string) {
+    super(nombre);
   }
   
-  const perro = new Perro("Firulais");
-  perro.hacerSonido();
+  hacerSonido(): void {
+    console.log("Miau, miau!");
+  }
+}
   
-  const gato = new Gato("Misifu");
-  gato.hacerSonido();
+const perro = new Perro("Akira");
+perro.hacerSonido();
+  
+const gato = new Gato("Mishell");
+gato.hacerSonido();

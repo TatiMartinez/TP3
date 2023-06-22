@@ -8,54 +8,47 @@ Presentar en un repositorio de GitHub en grupo de no mas de 4 personas
 En el repositorio debe figurar la actividad de cada integrante del grupo
 */
 interface Tarea {
-    id: number;
-    descripcion: string;
-    completada: boolean;
-  }
+  id: number;
+  descripcion: string;
+  completada: boolean;
+};
   
-  class ListaTareas {
-    private tareas: Tarea[];
+class ListaTareas {
+  private tareas: Tarea[];
   
-    constructor() {
-      this.tareas = [];
+  constructor() {
+    this.tareas = [];
+  };
+  
+  agregarTarea(tarea: Tarea): void {
+    this.tareas.push(tarea);
+  };
+  
+  marcarTareaCompleta(id: number): void {
+    const tarea = this.buscarTareaPorId(id);
+    if (tarea) {
+      tarea.completada = true;
     }
+  };
   
-    agregarTarea(tarea: Tarea): void {
-      this.tareas.push(tarea);
-    }
+  listarTareas(): void {
+    console.log('Lista de tareas:');
+    this.tareas.forEach((tarea) => {
+      console.log(`ID: ${tarea.id}, Descripción: ${tarea.descripcion}, Completada: ${tarea.completada}`);
+    });
+  };
   
-    marcarTareaCompleta(id: number): void {
-      const tarea = this.buscarTareaPorId(id);
-      if (tarea) {
-        tarea.completada = true;
-      }
-    }
+  private buscarTareaPorId(id: number): Tarea | undefined {
+    return this.tareas.find((tarea) => tarea.id === id);
+  };
+};
   
-    listarTareas(): void {
-      console.log('Lista de tareas:');
-      this.tareas.forEach((tarea) => {
-        console.log(`ID: ${tarea.id}, Descripción: ${tarea.descripcion}, Completada: ${tarea.completada}`);
-      });
-    }
+const lista = new ListaTareas();
   
-    private buscarTareaPorId(id: number): Tarea | undefined {
-      return this.tareas.find((tarea) => tarea.id === id);
-    }
-  }
+lista.agregarTarea({ id: 1, descripcion: 'Hacer la compra', completada: false });
+lista.agregarTarea({ id: 2, descripcion: 'Limpiar la casa', completada: false });
+lista.agregarTarea({ id: 3, descripcion: 'Estudiar para el examen', completada: false });
   
-  // Ejemplo de uso
-  
-  // Crear una instancia de ListaTareas
-  const lista = new ListaTareas();
-  
-  // Agregar tareas
-  lista.agregarTarea({ id: 1, descripcion: 'Hacer la compra', completada: false });
-  lista.agregarTarea({ id: 2, descripcion: 'Limpiar la casa', completada: false });
-  lista.agregarTarea({ id: 3, descripcion: 'Estudiar para el examen', completada: false });
-  
-  // Marcar una tarea como completada
-  lista.marcarTareaCompleta(2);
-  
-  // Listar las tareas
-  lista.listarTareas();
+lista.marcarTareaCompleta(2);
+lista.listarTareas();
   
